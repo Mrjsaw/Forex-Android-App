@@ -44,7 +44,9 @@ public class NetworkController {
             getRequestQueue().add(req);
         }
     }
-    public void getLatestHTTP(String apicall, String base) {
+
+    public JSONObject getLatestHTTP(String apicall, String base) {
+        JSONObject obj = new JSONObject();
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
                 url+apicall+base, null,
                 new Response.Listener<JSONObject>() {
@@ -52,7 +54,7 @@ public class NetworkController {
                     @Override
                     public void onResponse(JSONObject response) {
                         Log.d("NetworkCtrl:", response.toString());
-
+                        //obj = response;
                     }
                 }, new Response.ErrorListener() {
 
@@ -61,5 +63,7 @@ public class NetworkController {
                 Log.e("NetworkController", error.toString());
             }
         });
+        mRequestQueue.add(jsonObjReq);
+        return obj;
     }
 }

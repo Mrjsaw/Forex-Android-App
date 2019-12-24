@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:bind="http://schemas.android.com/tools">
-    <!--
-    <data>
-
-        <variable
-            name="viewModel"
-            type="com.example.changex.viewmodel.ExchangeViewModel" />
-    </data>
-    -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   android:layout_height="match_parent"
+     android:layout_width="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -38,10 +31,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:onClick="onClickExchange"
                 android:text="Exchange"
                />
-
+            <TextView
+                android:id="@+id/rate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="15256545454"></TextView>
 
         </LinearLayout>
 
-</layout>
+
+</RelativeLayout>
