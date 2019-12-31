@@ -13,30 +13,28 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     public ListView listView;
     public ListViewAdapter itemsAdapter;
-    public ArrayList<CurrencyPair> items = new ArrayList<>();
-    public CurrencyPair cp = new CurrencyPair("USD", "EUR", 1.025F);
-    public CurrencyPair cp2 = new CurrencyPair("USD", "EUR", 1.025F);
+    public ArrayList<CurrencyPair> items;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         listView = findViewById(R.id.listView);
-        items.add(cp);
+        items = getCurrencies();
         itemsAdapter = new ListViewAdapter(this, items);
         listView.setAdapter(itemsAdapter);
 
     }
     public ArrayList<CurrencyPair> getCurrencies() {
-        ArrayList<String>
+        ArrayList<CurrencyPair> currencyPairs = new ArrayList<>();
         Resources res = getResources();
         String[] currencies = res.getStringArray(R.array.currencies);
-        ArrayList<String> temp = new ArrayList<>();
         for (String s:currencies
              ) {
-            temp.add(s);
+            CurrencyPair pair = new CurrencyPair("USD",s,2.0456f);
+            currencyPairs.add(pair);
         }
-        return ;
+        return currencyPairs;
 
     }
 }

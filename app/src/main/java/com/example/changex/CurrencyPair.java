@@ -10,4 +10,16 @@ public class CurrencyPair {
         this.pair = pair;
         this.exchangeRate = exchangeRate;
     }
+
+    public String getBase() {
+        return base;
+    }
+
+    public String getPair() {
+        return pair;
+    }
+
+    public float getExchangeRate() {
+        return exchangeRate;
+    }
 }

@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="50dp">
     <ImageView
+        android:id="@+id/flag"
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="40dp"
@@ -15,17 +16,19 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
     <TextView
+        android:id="@+id/country"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="United States"/>
 
     <TextView
+        android:id="@+id/exchange"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/text"
         android:text="1 USD = 1.0000 USD"/>
     </LinearLayout>
     <TextView
+        android:id="@+id/amount"
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="wrap_content"
