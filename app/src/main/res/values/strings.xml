@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">ChangeX</string>
+    <string-array name="currencies">
+        <item>USD</item>
+        <item>EUR</item>
+        <item>GBP</item>
+        <item>JPY</item>
+        <item>CAD</item>
+        <item>CNY</item>
+        <item>INR</item>
+        <item>HKD</item>
+        <item>AUD</item>
+        <item>IDR</item>
+        <item>TRY</item>
+        <item>ZWD</item>
+        <item>BTC</item>
+    </string-array>
+
 </resources>

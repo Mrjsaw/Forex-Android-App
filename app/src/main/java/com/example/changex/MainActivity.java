@@ -2,6 +2,7 @@ package com.example.changex;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -14,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     public ListViewAdapter itemsAdapter;
     public ArrayList<CurrencyPair> items = new ArrayList<>();
     public CurrencyPair cp = new CurrencyPair("USD", "EUR", 1.025F);
+    public CurrencyPair cp2 = new CurrencyPair("USD", "EUR", 1.025F);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,5 +25,18 @@ public class MainActivity extends AppCompatActivity {
         items.add(cp);
         itemsAdapter = new ListViewAdapter(this, items);
         listView.setAdapter(itemsAdapter);
+
+    }
+    public ArrayList<CurrencyPair> getCurrencies() {
+        ArrayList<String>
+        Resources res = getResources();
+        String[] currencies = res.getStringArray(R.array.currencies);
+        ArrayList<String> temp = new ArrayList<>();
+        for (String s:currencies
+             ) {
+            temp.add(s);
+        }
+        return ;
+
     }
 }
