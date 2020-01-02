@@ -2,12 +2,12 @@ package com.example.changex;
 
 public class CurrencyPair {
     public String base;
-    public String pair;
+    public String quote;
     public float exchangeRate;
 
-    public CurrencyPair(String base, String pair, float exchangeRate) {
+    public CurrencyPair(String base, String quote, float exchangeRate) {
         this.base = base;
-        this.pair = pair;
+        this.quote = quote;
         this.exchangeRate = exchangeRate;
     }
 
@@ -15,8 +15,8 @@ public class CurrencyPair {
         return base;
     }
 
-    public String getPair() {
-        return pair;
+    public String getQuote() {
+        return quote;
     }
 
     public float getExchangeRate() {
