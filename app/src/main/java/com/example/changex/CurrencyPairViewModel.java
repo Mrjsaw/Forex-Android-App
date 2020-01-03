@@ -1,9 +1,13 @@
 package com.example.changex;
 
+import android.graphics.drawable.Drawable;
 import android.media.Image;
+import android.widget.ImageView;
+
+import androidx.core.content.ContextCompat;
 
 public class CurrencyPairViewModel {
-    Image flag;
+    ImageView flag;
     String country;
     String exchange;
     String amount;
@@ -28,8 +32,35 @@ public class CurrencyPairViewModel {
         return amount;
     }
 
-    public Image getFlag() {
-        return flag;
+    public void setDrawable() {
+        switch (country) {
+            case "USD": //flag.setImageDrawable(ContextCompat.getDrawable(R.drawable.ic_flag_au));
+                break;
+            case "EUR": country = "Europe";
+                break;
+            case "AUD": country = "Australia";
+                break;
+            case "GBP": country = "United Kingdom";
+                break;
+            case "JPY": country = "Japan";
+                break;
+            case "CAD": country = "Canada";
+                break;
+            case "CNY": country = "China";
+                break;
+            case "INR": country = "India";
+                break;
+            case "HKD": country = "Hong Kong";
+                break;
+            case "IDR": country = "Indonesia";
+                break;
+            case "TRY": country = "Turkey";
+                break;
+            case "ZWD": country = "Zimbabwe";
+                break;
+            case "BTC": country = "Bitcoin";
+                break;
+        }
     }
 
     public String getCountry(String currency) {
@@ -41,7 +72,7 @@ public class CurrencyPairViewModel {
                 break;
             case "AUD": country = "Australia";
                 break;
-            case "GBP": country = "Great Britain";
+            case "GBP": country = "United Kingdom";
                 break;
             case "JPY": country = "Japan";
                 break;
