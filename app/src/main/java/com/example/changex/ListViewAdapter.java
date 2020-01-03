@@ -58,7 +58,33 @@ public class ListViewAdapter extends ArrayAdapter<CurrencyPair> {
         viewHolder.country.setText(currencyPair.getQuote());
         viewHolder.exchange.setText("1 " + currencyPair.getBase() + " = " + (currencyPair.getExchangeRate() * 1) + " " + currencyPair.getQuote());
         viewHolder.amount.setText("$" + String.format("%.02f", currencyPair.getExchangeRate()));
-        viewHolder.flag.setImageDrawable(ContextCompat.getDrawable(getContext().getApplicationContext(), R.drawable.ic_flag_au));
+        switch(currencyPair.getQuote()) {
+            case "USD": viewHolder.flag.setImageDrawable(ContextCompat.getDrawable(getContext().getApplicationContext(), R.drawable.ic_flag_usa));
+                break;
+            case "EUR": viewHolder.flag.setImageDrawable(ContextCompat.getDrawable(getContext().getApplicationContext(), R.drawable.ic_flag_eu));
+                break;
+            case "AUD": viewHolder.flag.setImageDrawable(ContextCompat.getDrawable(getContext().getApplicationContext(), R.drawable.ic_flag_au));
+                break;
+            case "GBP": viewHolder.flag.setImageDrawable(ContextCompat.getDrawable(getContext().getApplicationContext(), R.drawable.ic_flag_uk));
+                break;
+            case "JPY": viewHolder.flag.setImageDrawable(ContextCompat.getDrawable(getContext().getApplicationContext(), R.drawable.ic_flag_japan));
+                break;
+            case "CAD": viewHolder.flag.setImageDrawable(ContextCompat.getDrawable(getContext().getApplicationContext(), R.drawable.ic_flag_canada));
+                break;
+            case "CNY": viewHolder.flag.setImageDrawable(ContextCompat.getDrawable(getContext().getApplicationContext(), R.drawable.ic_flag_china));
+                break;
+            case "INR": viewHolder.flag.setImageDrawable(ContextCompat.getDrawable(getContext().getApplicationContext(), R.drawable.ic_flag_india));
+                break;
+            case "HKD": viewHolder.flag.setImageDrawable(ContextCompat.getDrawable(getContext().getApplicationContext(), R.drawable.ic_flag_hk));
+                break;
+            case "IDR": viewHolder.flag.setImageDrawable(ContextCompat.getDrawable(getContext().getApplicationContext(), R.drawable.ic_flag_indo));
+                break;
+            case "TRY": viewHolder.flag.setImageDrawable(ContextCompat.getDrawable(getContext().getApplicationContext(), R.drawable.ic_flag_turkey));
+                break;
+            case "ZWD": viewHolder.flag.setImageDrawable(ContextCompat.getDrawable(getContext().getApplicationContext(), R.drawable.ic_flag_zimbabwe));
+                break;
+        }
+        
         //viewHolder.flag(this);
         //viewHolder.flag.setTag(position);
         return convertView;
