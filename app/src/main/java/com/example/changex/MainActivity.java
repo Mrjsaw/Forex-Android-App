@@ -2,27 +2,19 @@ package com.example.changex;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
-import androidx.lifecycle.LiveData;
 import androidx.room.Room;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import android.content.Context;
-import android.content.SharedPreferences;
+
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.util.Log;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.changex.db.AppDatabase;
 import com.example.changex.db.Currency;
 
-import org.json.JSONObject;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -43,11 +35,11 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onRefresh() {
                         Log.i("SwipeRefresh:", "onRefresh called from SwipeRefreshLayout");
-
                         // This method performs the actual data-refresh operation.
                         // The method calls setRefreshing(false) when it's finished.
                         NetworkAdapter.getInstance(getApplicationContext()).getData("USD");
                     }
+
                 }
         );
 
@@ -58,24 +50,21 @@ public class MainActivity extends AppCompatActivity {
         seedDatabase();
         listView = findViewById(R.id.listView);
         items = getCurrencies();
-        /*List<Currency> myList = myDatabase.currencyDAO().getAll().getValue();
-        for (int i = 7; i< 18; i++) {
-            Log.i("dbDAO:",myList.get(i).toString());
-        }
-*/
         itemsAdapter = new ListViewAdapter(this, items);
         listView.setAdapter(itemsAdapter);
 
     }
     public ArrayList<CurrencyPair> getCurrencies() {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this.getApplicationContext());
         ArrayList<CurrencyPair> currencyPairs = new ArrayList<>();
         Resources res = getResources();
         String[] currencies = res.getStringArray(R.array.currencies);
+        String[] symbols = res.getStringArray(R.array.symbols);
+        int ctr = 0;
         for (String s:currencies
              ) {
-            CurrencyPair pair = new CurrencyPair("EUR",s,NetworkAdapter.getInstance(getApplicationContext()).getRates());
+            CurrencyPair pair = new CurrencyPair("USD",s,symbols[ctr]+NetworkAdapter.getInstance(getApplicationContext()).getRates().get(ctr));
             currencyPairs.add(pair);
+            ctr++;
         }
         return currencyPairs;
 

@@ -57,7 +57,8 @@ public class ListViewAdapter extends ArrayAdapter<CurrencyPair> {
         lastPosition = position;
         viewHolder.country.setText(getCountry(currencyPair.getQuote()));
         viewHolder.exchange.setText("1 " + currencyPair.getBase() + " = " + (currencyPair.getExchangeRate()) + " " + currencyPair.getQuote());
-        viewHolder.amount.setText("$" + currencyPair.getExchangeRate());
+        String[] symbols = getContext().getApplicationContext().getResources().getStringArray(R.array.currencies);
+        viewHolder.amount.setText(currencyPair.getExchangeRate());
         //TODO: Refactor this
         switch(currencyPair.getQuote()) {
             case "USD": viewHolder.flag.setImageDrawable(ContextCompat.getDrawable(getContext().getApplicationContext(), R.drawable.ic_flag_usa));
