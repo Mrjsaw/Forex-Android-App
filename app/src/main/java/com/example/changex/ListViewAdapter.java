@@ -55,9 +55,10 @@ public class ListViewAdapter extends ArrayAdapter<CurrencyPair> {
             viewHolder = (ViewHolder) convertView.getTag();
         }
         lastPosition = position;
-        viewHolder.country.setText(currencyPair.getQuote());
-        viewHolder.exchange.setText("1 " + currencyPair.getBase() + " = " + (currencyPair.getExchangeRate() * 1) + " " + currencyPair.getQuote());
-        viewHolder.amount.setText("$" + String.format("%.02f", currencyPair.getExchangeRate()));
+        viewHolder.country.setText(getCountry(currencyPair.getQuote()));
+        viewHolder.exchange.setText("1 " + currencyPair.getBase() + " = " + (currencyPair.getExchangeRate()) + " " + currencyPair.getQuote());
+        viewHolder.amount.setText("$" + currencyPair.getExchangeRate());
+        //TODO: Refactor this
         switch(currencyPair.getQuote()) {
             case "USD": viewHolder.flag.setImageDrawable(ContextCompat.getDrawable(getContext().getApplicationContext(), R.drawable.ic_flag_usa));
                 break;
@@ -84,10 +85,41 @@ public class ListViewAdapter extends ArrayAdapter<CurrencyPair> {
             case "ZWD": viewHolder.flag.setImageDrawable(ContextCompat.getDrawable(getContext().getApplicationContext(), R.drawable.ic_flag_zimbabwe));
                 break;
         }
-        
+
         //viewHolder.flag(this);
         //viewHolder.flag.setTag(position);
         return convertView;
     }
-
+    public String getCountry(String currency) {
+        String country = "N/A";
+        switch (currency) {
+            case "USD": country = "United States";
+                break;
+            case "EUR": country = "Europe";
+                break;
+            case "AUD": country = "Australia";
+                break;
+            case "GBP": country = "United Kingdom";
+                break;
+            case "JPY": country = "Japan";
+                break;
+            case "CAD": country = "Canada";
+                break;
+            case "CNY": country = "China";
+                break;
+            case "INR": country = "India";
+                break;
+            case "HKD": country = "Hong Kong";
+                break;
+            case "IDR": country = "Indonesia";
+                break;
+            case "TRY": country = "Turkey";
+                break;
+            case "ZWD": country = "Zimbabwe";
+                break;
+            case "BTC": country = "Bitcoin";
+                break;
+        }
+        return country;
+    }
 }
