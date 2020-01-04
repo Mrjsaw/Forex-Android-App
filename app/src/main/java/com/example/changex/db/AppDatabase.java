@@ -6,4 +6,5 @@ import androidx.room.RoomDatabase;
 @Database(entities = {Currency.class}, version = 1)
 public abstract class AppDatabase extends RoomDatabase {
     public abstract CurrencyDAO currencyDAO();
+
 }

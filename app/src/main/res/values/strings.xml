@@ -12,8 +12,32 @@
         <item>AUD</item>
         <item>IDR</item>
         <item>TRY</item>
-        <item>ZWD</item>
-        <item>BTC</item>
+    </string-array>
+    <string-array name="symbols">
+        <item>$</item>
+        <item>€</item>
+        <item>£</item>
+        <item>¥</item>
+        <item>$</item>
+        <item>¥</item>
+        <item>₹</item>
+        <item>$</item>
+        <item>$</item>
+        <item>Rp</item>
+        <item>₺</item>
+    </string-array>
+    <string-array name="countries">
+        <item>United States</item>
+        <item>Europe</item>
+        <item>United Kingdom</item>
+        <item>Japan</item>
+        <item>Canada</item>
+        <item>China</item>
+        <item>India</item>
+        <item>Hong Kong</item>
+        <item>Australia</item>
+        <item>Indonesia</item>
+        <item>Turkey</item>
     </string-array>
 
 </resources>

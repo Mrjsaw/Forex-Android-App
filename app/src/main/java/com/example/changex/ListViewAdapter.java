@@ -82,8 +82,6 @@ public class ListViewAdapter extends ArrayAdapter<CurrencyPair> {
                 break;
             case "TRY": viewHolder.flag.setImageDrawable(ContextCompat.getDrawable(getContext().getApplicationContext(), R.drawable.ic_flag_turkey));
                 break;
-            case "ZWD": viewHolder.flag.setImageDrawable(ContextCompat.getDrawable(getContext().getApplicationContext(), R.drawable.ic_flag_zimbabwe));
-                break;
         }
 
         //viewHolder.flag(this);
@@ -114,10 +112,6 @@ public class ListViewAdapter extends ArrayAdapter<CurrencyPair> {
             case "IDR": country = "Indonesia";
                 break;
             case "TRY": country = "Turkey";
-                break;
-            case "ZWD": country = "Zimbabwe";
-                break;
-            case "BTC": country = "Bitcoin";
                 break;
         }
         return country;

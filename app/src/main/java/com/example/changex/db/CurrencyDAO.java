@@ -12,6 +12,9 @@ import java.util.List;
 public interface CurrencyDAO {
     @Query("SELECT * FROM currencies")
     List<Currency> getAll();
+
+    @Query("DELETE FROM currencies")
+    public void nukeTable();
     /*
     @Query("SELECT * FROM currency WHERE cid IN (:userIds)")
     List<User> loadAllByIds(int[] userIds);
