@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ListView;
 
 import com.example.changex.db.AppDatabase;
@@ -26,11 +27,14 @@ public class exchange_fragment extends Fragment {
     public ArrayList<CurrencyPair> items;
     public static AppDatabase myDatabase;
     public SwipeRefreshLayout mySwipeRefreshLayout;
+    public FrameLayout fl;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.exchange_layout, null);
+        View rootView = inflater.inflate(R.layout.exchange_layout, null);
+        fl = (FrameLayout) rootView.findViewById(R.id.frameLayout);
+        return rootView;
         //return super.onCreateView(inflater, container, savedInstanceState);
     }
 
