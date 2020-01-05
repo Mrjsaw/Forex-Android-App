@@ -13,6 +13,9 @@ Settings (settings_fragment)
 
 # Tests
 IntroActivityTest:
+
 Tests if the onclick intent works as intended
+
 MainActivityTest:
+
 Tests if the activity will run
