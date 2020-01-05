@@ -27,13 +27,11 @@ public class exchange_fragment extends Fragment {
     public ArrayList<CurrencyPair> items;
     public static AppDatabase myDatabase;
     public SwipeRefreshLayout mySwipeRefreshLayout;
-    public FrameLayout fl;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.exchange_layout, null);
-        fl = (FrameLayout) rootView.findViewById(R.id.frameLayout);
+        View rootView = inflater.inflate(R.layout.exchange_layout, container, false);
         return rootView;
         //return super.onCreateView(inflater, container, savedInstanceState);
     }

@@ -1,26 +1,27 @@
 package com.example.changex;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
-import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.FrameLayout;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Toast;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationView;
 
 
 public class MainActivity extends AppCompatActivity {
     public NavController navController;
     public Toolbar toolbar;
-    public BottomNavigationView bottomNavigationView;
+    private DrawerLayout drawerLayout;
     public AppBarConfiguration appBarConfiguration;
 
 
@@ -29,31 +30,68 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         navController = Navigation.findNavController(this, R.id.main_content);
-        bottomNavigationView = findViewById(R.id.bottomNavbar);
         appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
-        toolbar = findViewById(R.id.toolbar);
+        configureToolbar();
+        configureNavigationDrawer();
+
+    }
+    private void configureToolbar() {
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        NavigationUI.setupWithNavController(toolbar, navController);
-            exchange_fragment fragment = new exchange_fragment();
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.main_content, fragment)
-                    .commit();
-
-
-        navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
+        ActionBar actionbar = getSupportActionBar();
+        actionbar.setDisplayHomeAsUpEnabled(false);
+    }
+    private void configureNavigationDrawer() {
+        drawerLayout = findViewById(R.id.drawer_layout);
+        NavigationView navView = (NavigationView) findViewById(R.id.navigation);
+        navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public void onDestinationChanged(@NonNull NavController controller,
-                                             @NonNull NavDestination destination, @Nullable Bundle arguments) {
-                if(destination.getId() == R.id.converter_fragment) {
-                    toolbar.setVisibility(View.GONE);
-                    bottomNavigationView.setVisibility(View.GONE);
-                } else {
-                    toolbar.setVisibility(View.VISIBLE);
-                    bottomNavigationView.setVisibility(View.VISIBLE);
+            public boolean onNavigationItemSelected(MenuItem menuItem) {
+                Fragment f = null;
+                int itemId = menuItem.getItemId();
+                if (itemId == R.id.exchange) {
+                    f = new exchange_fragment();
+                } else if (itemId == R.id.converter) {
+                    f = new converter_fragment();
+                }else if (itemId == R.id.settings) {
+                    f = new settings_fragment();
                 }
+                if (f != null) {
+                    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                    transaction.replace(R.id.frameLayout, f)
+                            .commit();
+                    drawerLayout.closeDrawers();
+                    return true;
+                }
+
+                return false;
             }
         });
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.options, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Fragment f = null;
+        int itemId = item.getItemId();
+        if (itemId == R.id.exchange) {
+            f = new exchange_fragment();
+        } else if (itemId == R.id.converter) {
+            f = new converter_fragment();
+        } else if (itemId == R.id.settings) {
+            f = new settings_fragment();
+        }
+        if (f != null) {
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.frameLayout, f)
+                    .commit();
+            drawerLayout.closeDrawers();
+            return true;
+        }
 
+        return false;
     }
 }
