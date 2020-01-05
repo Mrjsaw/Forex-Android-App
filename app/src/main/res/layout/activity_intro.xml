@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@android:color/holo_blue_dark"
+    android:background="@drawable/background_gradient"
     tools:context=".IntroActivity">
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,9 +20,7 @@
         android:layout_weight="2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/colorPrimary"
-
-        android:textColor="@android:color/white"
+        android:background="@color/colorAccent"
         android:text="Start"
         android:onClick="onButtonClick"></Button>
     </LinearLayout>
