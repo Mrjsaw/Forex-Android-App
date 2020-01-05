@@ -1,4 +1,4 @@
-package com.example.changex;
+package com.example.changex.adapters;
 
 import android.app.Application;
 import android.content.Context;
@@ -40,7 +40,6 @@ public class NetworkAdapter extends Application {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        // Handle error
                         Log.i("NetworkAdapter", error.toString());
                     }
                 });
@@ -60,9 +59,6 @@ public class NetworkAdapter extends Application {
             requestQueue = Volley.newRequestQueue(ctx.getApplicationContext());
         }
         return requestQueue;
-    }
-    public <T> void addToRequestQueue(Request<T> req) {
-        getRequestQueue().add(req);
     }
     public ArrayList<String> getRates() {
         return rates;

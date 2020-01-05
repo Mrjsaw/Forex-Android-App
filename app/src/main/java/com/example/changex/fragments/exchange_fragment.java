@@ -1,4 +1,4 @@
-package com.example.changex;
+package com.example.changex.fragments;
 
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -13,12 +13,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.ListView;
 
+import com.example.changex.CurrencyPair;
+import com.example.changex.adapters.ListViewAdapter;
+import com.example.changex.adapters.NetworkAdapter;
+import com.example.changex.R;
 import com.example.changex.db.AppDatabase;
 import com.example.changex.db.Currency;
-
 import java.util.ArrayList;
 
 public class exchange_fragment extends Fragment {
@@ -33,14 +35,11 @@ public class exchange_fragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.exchange_layout, container, false);
         return rootView;
-        //return super.onCreateView(inflater, container, savedInstanceState);
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //getActivity().setContentView(R.layout.exchange_layout);
-
     }
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
@@ -55,8 +54,6 @@ public class exchange_fragment extends Fragment {
                     @Override
                     public void onRefresh() {
                         Log.i("SwipeRefresh:", "onRefresh called from SwipeRefreshLayout");
-                        // This method performs the actual data-refresh operation.
-                        // The method calls setRefreshing(false) when it's finished.
                         NetworkAdapter.getInstance(getActivity().getApplicationContext()).getData("USD");
                         items=getCurrencies();
                         itemsAdapter.notifyDataSetChanged();

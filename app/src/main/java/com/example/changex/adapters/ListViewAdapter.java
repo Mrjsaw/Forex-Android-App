@@ -1,4 +1,4 @@
-package com.example.changex;
+package com.example.changex.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,15 +7,16 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 
+import com.example.changex.CurrencyPair;
+import com.example.changex.R;
+
 import java.util.List;
 
 public class ListViewAdapter extends ArrayAdapter<CurrencyPair> {
-
 
     public ListViewAdapter(@NonNull Context context, @NonNull List<CurrencyPair> objects) {
         super(context, 0, objects);
@@ -28,14 +29,12 @@ public class ListViewAdapter extends ArrayAdapter<CurrencyPair> {
         ImageView flag;
     }
 
-    private int lastPosition = -1;
 
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         CurrencyPair currencyPair = getItem(position);
         ViewHolder viewHolder;
-        final View result;
         if (convertView == null) {
             viewHolder = new ViewHolder();
             LayoutInflater inflater = LayoutInflater.from(getContext());
@@ -45,12 +44,10 @@ public class ListViewAdapter extends ArrayAdapter<CurrencyPair> {
             viewHolder.amount = (TextView) convertView.findViewById(R.id.amount);
             viewHolder.flag = (ImageView) convertView.findViewById(R.id.flag);
             convertView.setTag(viewHolder);
-            //convertView = LayoutInflater.from(getContext()).inflate(R.layout.row, parent, false);
 
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
-        lastPosition = position;
         viewHolder.country.setText(getCountry(currencyPair.getQuote()));
         viewHolder.exchange.setText("1 " + currencyPair.getBase() + " = " + (currencyPair.getExchangeRate()) + " " + currencyPair.getQuote());
         viewHolder.amount.setText(currencyPair.getExchangeRate());
@@ -80,8 +77,6 @@ public class ListViewAdapter extends ArrayAdapter<CurrencyPair> {
                 break;
         }
 
-        //viewHolder.flag(this);
-        //viewHolder.flag.setTag(position);
         return convertView;
     }
     public String getCountry(String currency) {

@@ -1,13 +1,9 @@
-package com.example.changex;
+package com.example.changex.fragments;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +13,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.changex.adapters.NetworkAdapter;
+import com.example.changex.R;
 
 import java.util.ArrayList;
 
@@ -44,7 +43,7 @@ public class converter_fragment extends Fragment  implements AdapterView.OnItemS
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         spinner = (Spinner) getView().findViewById(R.id.spinnerTwo);
-        ArrayAdapter<String>adapter = new ArrayAdapter<String>(getActivity(),
+        ArrayAdapter<String>adapter = new ArrayAdapter<>(getActivity(),
                 android.R.layout.simple_spinner_item,paths);
         amount = getView().findViewById(R.id.amount_conv);
         value = getView().findViewById(R.id.getValue);
@@ -126,7 +125,6 @@ public class converter_fragment extends Fragment  implements AdapterView.OnItemS
                 d = number * Double.parseDouble(rates.get(position));
                 amount.setText(d.toString());
                 break;
-
         }
     }
 

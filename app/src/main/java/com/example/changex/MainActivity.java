@@ -9,12 +9,13 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
-
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
+import com.example.changex.fragments.converter_fragment;
+import com.example.changex.fragments.exchange_fragment;
+import com.example.changex.fragments.settings_fragment;
 import com.google.android.material.navigation.NavigationView;
 
 
