@@ -39,13 +39,9 @@
         <item>Indonesia</item>
         <item>Turkey</item>
     </string-array>
-        <string-array name="setting_list">
-            <item>Theme</item>
-            <item>Language</item>
-            <item>Cryptocurrency</item>
-        </string-array>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
+    <string-array name="setting_list">
+        <item>Theme</item>
+        <item>Language</item>
+        <item>Cryptocurrency</item>
+    </string-array>
 </resources>

@@ -7,11 +7,11 @@
 
     <fragment
         android:id="@+id/exchange_fragment"
-        android:name="com.example.changex.exchange_fragment"
+        android:name="com.example.changex.fragments.exchange_fragment"
         android:label="exchange_layout"
         tools:layout="@layout/exchange_layout" />
     <fragment
         android:id="@+id/converter_fragment"
-        android:name="com.example.changex.converter_fragment"
+        android:name="com.example.changex.fragments.converter_fragment"
         android:label="converter_fragment" />
 </navigation>

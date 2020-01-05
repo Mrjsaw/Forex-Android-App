@@ -1,20 +1,17 @@
-package com.example.changex;
+package com.example.changex.fragments;
 
-import android.content.Context;
 import android.content.res.Resources;
-import android.net.Uri;
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
-import android.widget.TextView;
+
+import com.example.changex.R;
+import com.example.changex.adapters.SettingsListAdapter;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class settings_fragment extends Fragment {
