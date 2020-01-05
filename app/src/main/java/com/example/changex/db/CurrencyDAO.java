@@ -14,15 +14,8 @@ public interface CurrencyDAO {
     List<Currency> getAll();
 
     @Query("DELETE FROM currencies")
-    public void nukeTable();
-    /*
-    @Query("SELECT * FROM currency WHERE cid IN (:userIds)")
-    List<User> loadAllByIds(int[] userIds);
+    void nukeTable();
 
-    @Query("SELECT * FROM user WHERE first_name LIKE :first AND " +
-            "name LIKE :last LIMIT 1")
-    User findByName(String first, String last);
-    */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertAll(Currency... currencies);
 

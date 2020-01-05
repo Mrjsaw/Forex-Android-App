@@ -1,19 +1,15 @@
 package com.example.changex;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.AppCompatImageView;
 import androidx.core.content.ContextCompat;
 
 import java.util.List;
@@ -57,7 +53,6 @@ public class ListViewAdapter extends ArrayAdapter<CurrencyPair> {
         lastPosition = position;
         viewHolder.country.setText(getCountry(currencyPair.getQuote()));
         viewHolder.exchange.setText("1 " + currencyPair.getBase() + " = " + (currencyPair.getExchangeRate()) + " " + currencyPair.getQuote());
-        String[] symbols = getContext().getApplicationContext().getResources().getStringArray(R.array.currencies);
         viewHolder.amount.setText(currencyPair.getExchangeRate());
         //TODO: Refactor this
         switch(currencyPair.getQuote()) {

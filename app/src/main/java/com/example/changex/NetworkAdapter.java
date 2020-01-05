@@ -12,8 +12,6 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 
 public class NetworkAdapter extends Application {
@@ -72,7 +70,6 @@ public class NetworkAdapter extends Application {
 
     public ArrayList<String> jsonStringToList(String json) {
         String temp = json.substring(10,json.length()-35);
-        Log.i("temp:",temp);
         ArrayList<String> newArr = new ArrayList<>();
         ArrayList<String> ss = new ArrayList<>();
         for(String w: temp.split(",")) {
@@ -82,7 +79,6 @@ public class NetworkAdapter extends Application {
         }
         for (int x = 0; x < 11; x++) {
             newArr.add(ss.get(x*2+1));
-            Log.i("arr:", ss.get(x*2+1));
         }
         ArrayList<String> tempList = new ArrayList<>(10);
         tempList.add(newArr.get(4)); //USD
