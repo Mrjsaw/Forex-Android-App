@@ -1,3 +1,51 @@
 <resources>
     <string name="app_name">ChangeX</string>
+    <string-array name="currencies">
+        <item>USD</item>
+        <item>EUR</item>
+        <item>GBP</item>
+        <item>JPY</item>
+        <item>CAD</item>
+        <item>CNY</item>
+        <item>INR</item>
+        <item>HKD</item>
+        <item>AUD</item>
+        <item>IDR</item>
+        <item>TRY</item>
+    </string-array>
+    <string-array name="symbols">
+        <item>$</item>
+        <item>€</item>
+        <item>£</item>
+        <item>¥</item>
+        <item>$</item>
+        <item>¥</item>
+        <item>₹</item>
+        <item>$</item>
+        <item>$</item>
+        <item>Rp</item>
+        <item>₺</item>
+    </string-array>
+    <string-array name="countries">
+        <item>United States</item>
+        <item>Europe</item>
+        <item>United Kingdom</item>
+        <item>Japan</item>
+        <item>Canada</item>
+        <item>China</item>
+        <item>India</item>
+        <item>Hong Kong</item>
+        <item>Australia</item>
+        <item>Indonesia</item>
+        <item>Turkey</item>
+    </string-array>
+        <string-array name="setting_list">
+            <item>Theme</item>
+            <item>Language</item>
+            <item>Cryptocurrency</item>
+        </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
