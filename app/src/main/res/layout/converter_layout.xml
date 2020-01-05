@@ -19,20 +19,20 @@
         android:textSize="30dp"
         android:textColor="@android:color/black"
         ></TextView>
+        <EditText
+            android:id="@+id/getValue"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="50dp"
+            android:textSize="30dp"
+            android:inputType="numberSigned"
+            android:textColor="@android:color/black"
+            android:text="1"/>
     <Spinner
         android:id="@+id/spinnerTwo"
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="50dp" />
-    <EditText
-        android:id="@+id/getValue"
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_height="50dp"
-        android:textSize="30dp"
-        android:inputType="numberSigned"
-        android:textColor="@android:color/black"
-        android:text="1"/>
 </LinearLayout>
 <TextView
     android:id="@+id/amount_conv"
