@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">ChangeX</string>
+    <string-array name="currencies">
+        <item>USD</item>
+        <item>EUR</item>
+        <item>GBP</item>
+        <item>JPY</item>
+        <item>CAD</item>
+        <item>CNY</item>
+        <item>INR</item>
+        <item>HKD</item>
+        <item>AUD</item>
+        <item>IDR</item>
+        <item>TRY</item>
+    </string-array>
+    <string-array name="symbols">
+        <item>$</item>
+        <item>€</item>
+        <item>£</item>
+        <item>¥</item>
+        <item>$</item>
+        <item>¥</item>
+        <item>₹</item>
+        <item>$</item>
+        <item>$</item>
+        <item>Rp</item>
+        <item>₺</item>
+    </string-array>
+    <string-array name="countries">
+        <item>Verenigde Staten</item>
+        <item>Europa</item>
+        <item>Verenigd Koninkrijk</item>
+        <item>Japan</item>
+        <item>Canada</item>
+        <item>China</item>
+        <item>Indie</item>
+        <item>Hong Kong</item>
+        <item>Australie</item>
+        <item>Indonesie</item>
+        <item>Turkije</item>
+    </string-array>
+    <string-array name="setting_list">
+        <item>Tema</item>
+        <item>Taal</item>
+        <item>Cryptocurrency</item>
+    </string-array>
+
+</resources>
